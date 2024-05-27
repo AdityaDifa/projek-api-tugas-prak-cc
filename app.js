@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 
 // Create - Tambah Buku
 app.post('/books', (req, res) => {
-  const { title, author, year } = req.body;
-  const query = 'INSERT INTO books (title, author) VALUES (?, ?)';
-  connection.query(query, [title, author], (err, results) => {
+  const { title, author, jumlah } = req.body;
+  const query = 'INSERT INTO books (title, author,jumlah) VALUES (?, ?,?)';
+  connection.query(query, [title, author,jumlah], (err, results) => {
     if (err) {
       console.error('Error inserting book:', err.stack);
       res.status(500).send('Error inserting book');
