@@ -56,9 +56,9 @@ app.get('/books/:id', (req, res) => {
 // Update - Perbarui Buku Berdasarkan ID
 app.put('/books/:id', (req, res) => {
   const { id } = req.params;
-  const { title, author, year } = req.body;
-  const query = 'UPDATE books SET title = ?, author = ? WHERE id = ?';
-  connection.query(query, [title, author, year, id], (err, results) => {
+  const { title, author, jumlah } = req.body;
+  const query = 'UPDATE books SET title = ?, author = ?,jumlah = ? WHERE id = ?';
+  connection.query(query, [title, author, jumlah, id], (err, results) => {
     if (err) {
       console.error('Error updating book:', err.stack);
       res.status(500).send('Error updating book');
